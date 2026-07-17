@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd
+
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+        <bean id = "student" class = "com.springcore.spel.Student">
+            <property name = "name" value = "#{'Luv Tomar'}"/>
+<!--            <property name="marks" value="#{100>50}"/>-->
+            <property name="passed" value="#{100>50}"/>
+<!--            Static variable-->
+            <property name="pi"
+                      value="#{T(java.lang.Math).PI}"/>
+<!--            Static method -->
+            <property name="randomNumber"
+                      value="#{T(java.lang.Math).random()}"/>
+<!--            Ternary operator-->
+            <property name="result"
+                      value="#{100>50 ? 'Pass' : 'Fail'}"/>
+            <property name="grades"
+                      value="#{{'Math':90,'Java':95,'DBMS':88}}"/>
+            <property name="osName"
+                      value="#{systemProperties['os.name']}"/>
+        </bean>
+
+
+</beans>
